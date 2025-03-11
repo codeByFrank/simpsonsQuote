@@ -1,0 +1,121 @@
+.quotes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.header-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #3c407b;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #3c407b;
+  }
+}
+
+/* Container for all cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Individual card */
+.quote-card {
+  position: relative;
+  width: 300px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Header area (Image) */
+  mat-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+
+  .quote-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .divider-wrapper {
+    margin: 0 20px;
+  }
+
+  .custom-divider {
+    border-color: #ccc !important;
+  }
+
+  /* Quote area */
+  .quote-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 0 10px;
+  }
+
+  .quote-text {
+    font-size: 1.1em;
+    line-height: 1.4;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Footer area with author */
+  .quote-footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    
+    .quote-author {
+      font-size: 1em;
+      color: #555;
+      margin: 0;
+    }
+  }
+}
+
+/* Badge in the top-right corner */
+.badge-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.new-badge {
+  background-color: #d32f2f;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8em;
+}

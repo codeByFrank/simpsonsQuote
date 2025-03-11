@@ -1,0 +1,45 @@
+<div class="quotes-container">
+
+  <!-- Loading indicator -->
+  <div *ngIf="quotes.length === 0" class="loading-container">
+    <mat-progress-spinner mode="indeterminate" diameter="60"></mat-progress-spinner>
+    <p>Loading quotes...</p>
+  </div>
+
+  <!-- Card layout -->
+  <div *ngIf="quotes.length > 0" class="cards-container">
+    <mat-card *ngFor="let q of quotes" class="quote-card" appearance="raised">
+      <!-- "NEW" badge -->
+      <div class="badge-container" *ngIf="q.isNew">
+        <span class="new-badge">NEW</span>
+      </div>
+
+      <!-- Header section with image -->
+      <mat-card-header>
+        <img
+          class="quote-image"
+          [src]="q.image"
+          alt="{{ q.character }}"
+          *ngIf="q.image"
+        />
+      </mat-card-header>
+
+      <!-- Light divider (slightly indented) -->
+      <div class="divider-wrapper">
+        <mat-divider class="custom-divider"></mat-divider>
+      </div>
+
+      <!-- Quote text -->
+      <mat-card-content class="quote-content">
+        <p class="quote-text">
+          {{ q.quote }}
+        </p>
+      </mat-card-content>
+
+      <!-- Footer section with author (always at the bottom) -->
+      <mat-card-footer class="quote-footer">
+        <p class="quote-author">— {{ q.character }}</p>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

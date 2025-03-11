@@ -1,0 +1,55 @@
+.login-container {
+
+  animation: fade-in 1s ease-in-out;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  width: 100%;
+  max-width: 400px; /* a typical max width for the login box */
+  text-align: center;
+  margin: 0 auto;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+mat-card {
+  width: 100%; 
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  mat-card {
+    max-width: 90%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  mat-card {
+    padding: 5px;
+  }
+
+  mat-form-field {
+    margin-bottom: 10px;
+  }
+
+  .login-button {
+    margin-top: 10px;
+  }
+}

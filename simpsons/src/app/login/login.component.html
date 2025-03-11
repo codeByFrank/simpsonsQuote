@@ -1,0 +1,99 @@
+<div class="login-container mat-drawer-container">
+  <mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <mat-card-header style="justify-content: center;">
+        <mat-card-title>
+          <mat-label>Login</mat-label>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content style="padding-top: 16px;">
+        <!-- Username field -->
+        <mat-form-field appearance="outline" id="usernameField">
+          <mat-label>Username</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input
+            matInput
+            formControlName="username"
+            required
+            autofocus
+            (keydown.enter)="login()"
+          />
+          <!-- Button to clear username -->
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            *ngIf="loginForm.get('username')?.value"
+            (click)="clearUsername()"
+            tabindex="-1">
+            <mat-icon>clear</mat-icon>
+          </button>
+
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+            <span>Please enter a username.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password field -->
+        <mat-form-field appearance="outline" id="passwordField">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            id="loginPw"
+            required
+            (keydown.enter)="login()"
+          />
+
+          <!-- Button to clear password -->
+          <button
+            *ngIf="loginForm.get('password')?.value"
+            mat-icon-button
+            type="button"
+            matSuffix
+            id="clearLoginPasswordBtn"
+            (click)="clearPassword()"
+            tabindex="-1">
+            <mat-icon>clear</mat-icon>
+          </button>
+
+          <!-- Button to hide/show password -->
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hidePassword = !hidePassword"
+            id="hideLoginPasswordBtn"
+            tabindex="-1">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            <span>Please enter a password.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- General error if login fails -->
+        <mat-error *ngIf="errorMessage">
+          {{ errorMessage }}
+        </mat-error>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          id="loginButton"
+          type="submit"
+          class="login-button">
+          Login
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
