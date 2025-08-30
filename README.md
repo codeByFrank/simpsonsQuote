@@ -1,3 +1,12 @@
+# Preview
+
+# Login Page
+
+![Login Page](docs/loginPage.png)
+
+# Landing Page
+![Landing Page](docs/landingPage.png)
+
 # Simpsons Code Challenge
 
 This project is a full-stack web application built for the Hanseatic Bank Code Challenge. It uses:
